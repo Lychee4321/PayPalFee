@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nao Fee Calculate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nao Fee Calculate</h1>
+    <label for="amount">Dollar Amount ($):</label>
+    <input type="number" id="amount" step="any" min="0" required>
+    <button onclick="calculateExchange()">Calculate</button>
+    <div id="result"></div>
+</p>
+</p>
+
+<!-- Telegram Link -->
+    <p>Contact me if u need help</p>
+    <a href="https://t.me/naonfall" target="_blank">t.me/naonfall</a>
+
+
+    <script>
+        function calculateExchange() {
+            const amountUSD = parseFloat(document.getElementById('amount').value);
+
+            // Assume exchange rate obtained from API or elsewhere
+            const exchangeRate = 1200; // Example exchange rate (replace with actual data)
+
+            const exchangeRate1 = (amountUSD * exchangeRate).toFixed(2); // Default
+            const exchangeRate2 = (amountUSD * exchangeRate * 1.08).toFixed(2); // * 8%
+            const exchangeRate3 = (amountUSD * exchangeRate * 1.10 * 1.08).toFixed(2); // * 10% * 8% For Tebex
+
+            const result = `
+                <p>Default: ${exchangeRate1} KRW</p>
+                <p>Default *8%: ${exchangeRate2} KRW</p>
+                <p>Default *10% *8%: ${exchangeRate3} KRW</p>
+            `;
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
